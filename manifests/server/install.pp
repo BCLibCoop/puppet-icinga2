@@ -157,7 +157,7 @@ class icinga2::server::install::execs inherits icinga2::server {
     'pgsql': {
       #Load the Postgres DB schema:
       exec { 'postgres_schema_load':
-	environment => { 'PGPASSWORD' => $db_password },
+	environment => [ "PGPASSWORD=$db_password" ],
         user    => 'root',
         path    => '/usr/bin:/usr/sbin:/bin/:/sbin',
         command => "psql -U ${db_user} -h ${db_host} -d ${db_name} -f ${server_db_schema_path} && touch /etc/icinga2/postgres_schema_loaded.txt",
