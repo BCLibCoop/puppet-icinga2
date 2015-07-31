@@ -11,8 +11,8 @@
 
 define icinga2::object::host (
   $object_hostname = $name,
-  $display_name = $fqdn,
-  $ipv4_address = $ipaddress,
+  $display_name = $::fqdn,
+  $ipv4_address = $::ipaddress,
   $ipv6_address = undef,
   $template_to_import = 'generic-host',
   $groups = [],
@@ -38,7 +38,7 @@ define icinga2::object::host (
   $icon_image = undef,
   $icon_image_alt = undef,
   $target_dir = '/etc/icinga2/objects',
-  $target_file_name = "${fqdn}.conf",
+  $target_file_name = "${::fqdn}.conf",
   $target_file_ensure = file,
   $target_file_owner = 'root',
   $target_file_group = 'root',
