@@ -37,7 +37,7 @@ object Host "<%= @object_hostname %>" {
   <%- end -%>
   }
   <%- elsif value.is_a?(Array) -%>
-  vars.<%= key %> = [<%- @value.each do |item| -%> "<%= item %>", <%- end -%>]
+  vars.<%= key %> = [ <%- value.each do |item| -%> "<%= item %>", <%- end -%>]
   <%- else -%>
   vars.<%= key %> = "<%= value %>"
   <%- end -%>
